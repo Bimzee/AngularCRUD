@@ -1,0 +1,3 @@
+ng new <ApplicationName>		  		//To create new Angular Application
+npm install bootstrap@3 --save	  		// To install Bootstrap 3 locally
+ng s/serve -o							// Run application in browser
