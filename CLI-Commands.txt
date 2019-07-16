@@ -1,3 +1,5 @@
 ng new <ApplicationName>		  		//To create new Angular Application
 npm install bootstrap@3 --save	  		// To install Bootstrap 3 locally
 ng s/serve -o							// Run application in browser
+ng s -o --base-href /emp/				//Run app with base path as /emp/
+ng build prod --base-href /emp/			//Compile the code and include base path in index.html as /emp/. Compiled code is in dist folder
