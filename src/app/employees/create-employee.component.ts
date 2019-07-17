@@ -9,11 +9,14 @@ import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 })
 export class CreateEmployeeComponent implements OnInit {
   isActive = true;
+  previePhoto =false;
   datePickerConfig: Partial<BsDatepickerConfig>;
   constructor() {
     this.datePickerConfig = Object.assign({},{containerClass: 'theme-dark-blue'});
    }
-
+   togglePhotoPreview(){
+     this.previePhoto = !this.previePhoto;
+   }
   ngOnInit() {
   }
 
