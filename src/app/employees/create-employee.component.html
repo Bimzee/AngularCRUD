@@ -40,11 +40,25 @@
                         Male
                     </label>
                     <label class="radio-inline">
-                            <input type="radio" value="FeMale" [(ngModel)]="gender" name="gender">
+                            <input type="radio" value="FeMale" [(ngModel)]="gender" name="gender" disabled>
                             FeMale
                         </label>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="DOB">Date of Birth</label>
+                <input id="DOB" name="DOB" [(ngModel)]="DOB" type="text" bsDatepicker [bsConfig]=datePickerConfig  class="form-control">
+                <!-- use bsDaterangePicker for date range instead of bsDatepicker -->
+            </div>
+            <div class="form-group">
+                    <div class="form-control">
+                        <label class="checkbox-inline">
+                            <input type="checkbox"  [(ngModel)]="isActive" name="isActive">
+                            Is Active
+                        </label>
+                        
+                    </div>
+                </div>
         </div>
         <div class="panel-footer">
             <button type="submit" class="btn btn-primary">Save</button>

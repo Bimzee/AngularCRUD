@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import {BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-create-employee',
@@ -7,8 +8,11 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-employee.component.css']
 })
 export class CreateEmployeeComponent implements OnInit {
-
-  constructor() { }
+  isActive = true;
+  datePickerConfig: Partial<BsDatepickerConfig>;
+  constructor() {
+    this.datePickerConfig = Object.assign({},{containerClass: 'theme-dark-blue'});
+   }
 
   ngOnInit() {
   }
