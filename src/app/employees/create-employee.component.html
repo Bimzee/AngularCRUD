@@ -8,15 +8,19 @@
             <div class="form-group" [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid">
                 <label for="name" class="control-label">Name</label>
                 <input id="name" name="name" [(ngModel)]="employee.name" required #name="ngModel" type="text" class="form-control">
-                <span class="help-block" *ngIf="name.invalid">Name is required</span>
+                <span class="help-block" *ngIf="name.invalid && name.touched">Name is required</span>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" [(ngModel)]="employee.email" type="text" #emailControl="ngModel" class="form-control">
+            <div class="form-group" [class.has-error]="email.invalid && email.touched" [class.has-sucess]="email.valid">
+                <label for="email" class="control-label">Email</label>
+                <input id="email" name="email" required email
+                 pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$" [(ngModel)]="employee.email" type="text" #email="ngModel" class="form-control">
+                <span class="help-block" *ngIf="email.errors?.required && email.touched">Email is required</span>
+                <span class="help-block" *ngIf="email.errors?.email && email.touched">Email is invalid</span>
+
             </div>
             <div class="form-group">
                 <label for="Phone">Phone Number</label>
-                <input id="phone" name="Phone" [(ngModel)]="employee.phoneNumber" type="text" class="form-control">
+                <input id="phone" name="Phone"  [(ngModel)]="employee.phoneNumber" type="text" class="form-control">
             </div>
             <div class="form-group">
                     <label>Contact Preference</label>
@@ -50,6 +54,18 @@
                 <label for="DOB">Date of Birth</label>
                 <input id="DOB" name="DOB" [(ngModel)]="employee.dateOfBirth" type="text" bsDatepicker [bsConfig]=datePickerConfig  class="form-control">
                 <!-- use bsDaterangePicker for date range instead of bsDatepicker -->
+            </div>
+            <div class="form-group">
+                <label for="department">Departments
+                </label>
+
+                    <select id="department" name="department" [(ngModel)]="department" class="form-control">
+                            <option value=0 selected="selected">Select Dept
+                                </option>
+                        <option *ngFor="let dept of departments; index as i" [value]="dept.id" [selected]="dept  === 1">{{dept.name}}</option>
+                      
+
+                    </select>
             </div>
             <div class="form-group">
                 <label for="photoPath">Photo Path</label>
